@@ -1,0 +1,17 @@
+# update_user.html
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改信息</title>
+</head>
+<body>
+<center>
+    <h1>修改内容</h1>
+    <form action="/update_user/?id={{ ret.id }}" method="post">
+        {% csrf_token %}
+        内容：<input type="text" name="context" value="{{ ret.context }}">
+        <input type="submit">
+</center>
+</body>
+</html>

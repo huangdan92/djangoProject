@@ -1,0 +1,18 @@
+# add_user.html
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新增页面</title>
+</head>
+<body>
+<form action="/add_user/" method="post">
+    {% csrf_token %}
+    <p style="text-align:center">姓名：<input type="text" name="name"/></p>
+    <p style="text-align:center">内容：<input type="text" name="context"/></p>
+    <p style="text-align:center">性别：<input type="text" name="sex"/></p>
+    <p style="text-align:center"><input type="submit" value="提交"/>
+    <p style="color: #ff0000;text-align: center">{{ error_name }}</p>
+</form>
+</body>
+</html>

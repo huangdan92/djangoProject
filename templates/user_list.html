@@ -1,0 +1,33 @@
+# user_list.html
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户名列表</title>
+</head>
+<body>
+<center>
+    <h1>用户名列表</h1>
+    <a href="/add_user/">添加用户</a><br/>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>姓名</th>
+            <th>内容</th>
+            <th>性别</th>
+            <th>删除</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in user_list %}
+            <tr>
+                <td>{{ i.name }}</td>
+                <td>{{ i.context }}</td>
+                <td>{{ i.sex }}</td>
+                <td><a href="/delete_user/?id={{ i.id }}">删除</a>
+                    <a href="/update_user/?id={{ i.id }}">修改内容</a></td>
+            </tr>
+        {% endfor %}
+</center>
+</body>
+</html>
