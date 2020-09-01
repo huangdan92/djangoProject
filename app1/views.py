@@ -8,13 +8,13 @@ def say_hello(request):
 
 
 # 查看数据
-def user_list(request):
+def list(request):
     myalldata = models.Person.objects.all()  # 取出表中所有数据
     return render(request, 'user_list.html', {'user_list': myalldata})
 
 
 # 新增数据
-def add_user(request):
+def add(request):
     error_name = ''
     if request.method == 'POST':
         # 1、获取前端输入的数据
@@ -35,7 +35,7 @@ def add_user(request):
 
 
 # 删除数据
-def delete_user(request):
+def delete(request):
     # 取出需要删除的id
     delete_id = request.GET.get('id')
     # 从数据库删除的
@@ -44,7 +44,7 @@ def delete_user(request):
 
 
 # 修改数据
-def update_user(request):
+def update(request):
     update_id = request.GET.get('id')
     if request.method == 'POST':
         new_context = request.POST.get('context')

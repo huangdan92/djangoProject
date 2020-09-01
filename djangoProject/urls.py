@@ -19,8 +19,8 @@ from app1 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('user_list/', views.user_list),
-    path('add_user/', views.add_user),
-    path('delete_user/', views.delete_user),
-    path('update_user/', views.update_user),  # 修改
+    path('user_list/', views.list),
+    path('add_user/', views.add),
+    path('delete_user/', views.delete),
+    path('update_user/', views.update),  # 修改
 ]
