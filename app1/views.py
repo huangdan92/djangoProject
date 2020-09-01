@@ -18,17 +18,17 @@ def add_user(request):
     error_name = ''
     if request.method == 'POST':
         # 1、获取前端输入的数据
-        name = request.POST.get('name')
-        context = request.POST.get('context')
-        sex = request.POST.get('sex')
-        user_list = models.Person.objects.filter(name=name)
+        new_name = request.POST.get('name')
+        new_context = request.POST.get('context')
+        new_sex = request.POST.get('sex')
+        user_list = models.Person.objects.filter(name=new_name)
         # 2、判断数据库是否存在
         if user_list:
-            error_name = '%s用户名已经存在了' % name
+            error_name = '%s用户名已经存在了' % new_name
             return render(request, 'add_user.html', {'error_name': error_name})
         # 3、存储到数据库中
         else:
-            user = models.Person.objects.create(name=name, context=context, sex=sex)
+            user = models.Person.objects.create(name=new_name, context=new_context, sex=new_sex)
             user.save()
             return redirect('/user_list/')
     return render(request, 'add_user.html')
