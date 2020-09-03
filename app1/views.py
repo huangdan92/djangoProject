@@ -16,7 +16,9 @@ def list(request):
 # 新增数据
 def add(request):
     error_name = ''
+    print(1)
     if request.method == 'POST':
+        print(2)
         # 1、获取前端输入的数据
         new_name = request.POST.get('name')
         new_context = request.POST.get('context')
@@ -24,13 +26,16 @@ def add(request):
         user_list = models.Person.objects.filter(name=new_name)
         # 2、判断数据库是否存在
         if user_list:
+            print(3)
             error_name = '%s用户名已经存在了' % new_name
             return render(request, 'add_user.html', {'error_name': error_name})
         # 3、存储到数据库中
         else:
+            print(4)
             user = models.Person.objects.create(name=new_name, context=new_context, sex=new_sex)
             user.save()
             return redirect('/user_list/')
+    print(5)
     return render(request, 'add_user.html')
 
 
